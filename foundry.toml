@@ -2,7 +2,7 @@
 bytecode_hash = "none"
 evm_version = "cancun"
 ffi = true
-fs_permissions = [{access = "read-write", path = ".forge-snapshots/"}]
+fs_permissions = [{access = "read-write", path = ".forge-snapshots/"}, {access = "read", path = "deploy-config/"}]
 libs = ["lib"]
 out = "out"
 optimizer = true
