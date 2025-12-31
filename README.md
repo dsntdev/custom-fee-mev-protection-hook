@@ -65,27 +65,7 @@ Config fields:
 -   `poolManager`
 -   `wrappedNative`
 -   `create2Deployer`
--   `owner` (zero address defaults to deployer)
-
-## Verification
-
-Use the standard Foundry verify flow and pass constructor args for
-`CustomFeeAntiMevHook(IPoolManager poolManager, address wrappedNative)`.
-
-Example:
-
-```bash
-forge verify-contract \
-  --rpc-url $ETHEREUM_RPC_URL \
-  --chain 1 \
-  --verifier etherscan \
-  --verifier-api-key $ETHERSCAN_API_KEY \
-  --constructor-args <ABI_ENCODED_ARGS> \
-  --num-of-optimizations 44444444 \
-  <DEPLOYED_ADDRESS> \
-  src/CustomFeeAntiMevHook.sol:CustomFeeAntiMevHook \
-  --watch
-```
+-   `owner`
 
 ## Tests
 
