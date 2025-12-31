@@ -33,7 +33,6 @@ contract DeployCustomFeeHookedV4PoolScript is Script {
         require(block.chainid == config.chainId, "unexpected chain id");
 
         address deployer = privateKey == 0 ? tx.origin : vm.addr(privateKey);
-        address owner = config.owner == address(0) ? deployer : config.owner;
         address wrappedNative = config.wrappedNative;
         IPoolManager manager = IPoolManager(config.poolManager);
 
@@ -48,7 +47,6 @@ contract DeployCustomFeeHookedV4PoolScript is Script {
         require(address(hook) == expectedHookAddress, "hook address mismatch");
 
         console2.log("Deployer:", deployer);
-        console2.log("Owner:", owner);
         console2.log("PoolManager:", address(manager));
         console2.log("WrappedNative:", wrappedNative);
         console2.log("Create2Deployer:", config.create2Deployer);
@@ -70,6 +68,5 @@ contract DeployCustomFeeHookedV4PoolScript is Script {
         config.poolManager = vm.parseJsonAddress(json, "$.poolManager");
         config.wrappedNative = vm.parseJsonAddress(json, "$.wrappedNative");
         config.create2Deployer = vm.parseJsonAddress(json, "$.create2Deployer");
-        config.owner = vm.parseJsonAddress(json, "$.owner");
     }
 }
